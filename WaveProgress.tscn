@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://progress_bar.gd" type="Script" id=1]
+
+[node name="wave_progress" type="CanvasLayer"]
+
+[node name="progress_bar" type="ColorRect" parent="."]
+margin_right = 25.0
+margin_bottom = 1500.0
+color = Color( 1, 1, 1, 0.27451 )
+script = ExtResource( 1 )
+seconds = 60
+
+[node name="progress" type="ColorRect" parent="progress_bar"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+color = Color( 0.290196, 1, 0, 0.27451 )
+
+[node name="progress_timer" type="Timer" parent="progress_bar"]
+wait_time = 0.1
+autostart = true
+[connection signal="timeout" from="progress_bar/progress_timer" to="progress_bar" method="_on_progress_timer_timeout"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/starfield.png" type="Texture" id=1]
+[ext_resource path="res://WaveProgress.tscn" type="PackedScene" id=2]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Planet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://moon_path.gd" type="Script" id=5]
+[ext_resource path="res://Moon.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0.487675, 152.642, -0.487675, -152.642, 677.476, 286.637, 30.2359, 0, -30.2359, 0, 520.445, 114, 0.97535, -131.185, -0.97535, 131.185, 359.024, 275.908, -33.1619, 1.9507, 33.1619, -1.9507, 514.592, 443.668, -15.1179, 161.42, 15.1179, -161.42, 677.476, 286.637 )
+}
+
+[node name="main" type="Node"]
+
+[node name="background" type="TextureRect" parent="."]
+margin_right = 1434.0
+margin_bottom = 2556.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="wave_progress" parent="." instance=ExtResource( 2 )]
+offset = Vector2( 25, 750 )
+transform = Transform2D( 1, 0, 0, 1, 25, 750 )
+
+[node name="hud" parent="." instance=ExtResource( 3 )]
+
+[node name="earth" parent="." instance=ExtResource( 4 )]
+position = Vector2( 696.431, 2028.6 )
+rotation = 0.410152
+
+[node name="moon_path" type="Path2D" parent="."]
+editor/display_folded = true
+position = Vector2( 0.129822, 1685.43 )
+scale = Vector2( 1.34856, 1.22744 )
+curve = SubResource( 1 )
+script = ExtResource( 5 )
+
+[node name="follow" type="PathFollow2D" parent="moon_path"]
+position = Vector2( 677.476, 286.637 )
+rotation = 0.410152
+rotate = false
+
+[node name="Moon" parent="moon_path/follow" instance=ExtResource( 6 )]
