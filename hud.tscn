@@ -13,7 +13,7 @@ editor/display_folded = true
 editor/display_folded = true
 anchor_right = 1.0
 margin_bottom = 200.0
-color = Color( 1, 1, 1, 0.27451 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="wave_label" type="Label" parent="background"]
 anchor_left = 1.0

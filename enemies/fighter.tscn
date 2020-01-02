@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://enemies/fighter.gd" type="Script" id=1]
+[ext_resource path="res://assets/ships.png" type="Texture" id=2]
+[ext_resource path="res://assets/ploom.png" type="Texture" id=3]
+
+[sub_resource type="ParticlesMaterial" id=1]
+trail_divisor = 2
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.97
+angular_velocity = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 29.5854
+height = 16.6889
+
+[node name="fighters" type="KinematicBody2D"]
+script = ExtResource( 1 )
+speed = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -40, 0 )
+rotation = 1.5708
+amount = 10
+process_material = SubResource( 1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3.59241, 0 )
+rotation = 1.5708
+shape = SubResource( 2 )
