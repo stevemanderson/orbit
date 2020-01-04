@@ -1,15 +1,15 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://progress_bar.gd" type="Script" id=1]
+[ext_resource path="res://ui/wave_progress.gd" type="Script" id=1]
 
 [node name="wave_progress" type="CanvasLayer"]
 
 [node name="progress_bar" type="ColorRect" parent="."]
 margin_right = 25.0
-margin_bottom = 1500.0
+margin_bottom = 500.0
 color = Color( 1, 1, 1, 0.27451 )
 script = ExtResource( 1 )
-seconds = 60
+seconds = 30
 
 [node name="progress" type="ColorRect" parent="progress_bar"]
 anchor_top = 1.0

@@ -1,68 +1,70 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://assets/starfield.png" type="Texture" id=2]
-[ext_resource path="res://wave_progess.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/wave_progess.tscn" type="PackedScene" id=3]
 [ext_resource path="res://hud.tscn" type="PackedScene" id=4]
-[ext_resource path="res://planets/planet.tscn" type="PackedScene" id=5]
-[ext_resource path="res://planets/moon_path.gd" type="Script" id=6]
-[ext_resource path="res://planets/moon.tscn" type="PackedScene" id=7]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0.487675, 152.642, -0.487675, -152.642, 677.476, 286.637, 30.2359, 0, -30.2359, 0, 520.445, 114, 0.97535, -131.185, -0.97535, 131.185, 359.024, 275.908, -33.1619, 1.9507, 33.1619, -1.9507, 514.592, 443.668, -15.1179, 161.42, 15.1179, -161.42, 677.476, 286.637 )
-}
+[ext_resource path="res://camera.gd" type="Script" id=5]
+[ext_resource path="res://planets/earth.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 2.67978, 2.19034, 0, 0, 0, 0, 1438.37, 2.19034 )
+"points": PoolVector2Array( 0, 0, 0, 0, -2287.24, -1684.78, 0, 0, 0, 0, 3718.69, -1695.93, 0, 0, 0, 0, 3707.54, 4276.57, 0, 0, 0, 0, -2309.52, 4287.71, 0, 0, 0, 0, -2298.38, -1707.07, 0, 0, 0, 0, -1220.48, -1707.22, 0, 0, 0, 0, -1224.62, -1711.81 )
 }
 
 [node name="main" type="Node"]
 script = ExtResource( 1 )
 
 [node name="background" type="TextureRect" parent="."]
-margin_right = 1434.0
-margin_bottom = 2556.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -640.0
+margin_right = 5640.0
+margin_bottom = 5360.0
 texture = ExtResource( 2 )
 expand = true
 
 [node name="wave_progress" parent="." instance=ExtResource( 3 )]
-offset = Vector2( 25, 750 )
-transform = Transform2D( 1, 0, 0, 1, 25, 750 )
+offset = Vector2( 25, 100 )
+transform = Transform2D( 1, 0, 0, 1, 25, 100 )
 
 [node name="hud" parent="." instance=ExtResource( 4 )]
 
-[node name="earth" parent="." instance=ExtResource( 5 )]
-position = Vector2( 696.431, 2419.6 )
-rotation = 0.410152
-
-[node name="moon_path" type="Path2D" parent="."]
-editor/display_folded = true
-position = Vector2( 0.129822, 2076.43 )
-scale = Vector2( 1.34856, 1.22744 )
-curve = SubResource( 1 )
-script = ExtResource( 6 )
-
-[node name="follow" type="PathFollow2D" parent="moon_path"]
-position = Vector2( 677.476, 286.637 )
-rotation = 0.410152
-rotate = false
-
-[node name="Moon" parent="moon_path/follow" instance=ExtResource( 7 )]
-
 [node name="spawn_timer" type="Timer" parent="."]
 wait_time = 0.5
-autostart = true
 
 [node name="spawn_path" type="Path2D" parent="."]
 editor/display_folded = true
+position = Vector2( 2288.31, 1711.23 )
 curve = SubResource( 2 )
 
 [node name="spawn_location" type="PathFollow2D" parent="spawn_path"]
-position = Vector2( 2.67978, 2.19034 )
+position = Vector2( -2287.24, -1684.78 )
 rotate = false
 
 [node name="launch_point" type="Node2D" parent="."]
-position = Vector2( 699.511, 2297 )
+position = Vector2( 3000, 3000 )
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2( 3000, 3000 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 6000
+limit_bottom = 6000
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 4.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+script = ExtResource( 5 )
+max_zoom = 4.0
+
+[node name="earth" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3000, 3000 )
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

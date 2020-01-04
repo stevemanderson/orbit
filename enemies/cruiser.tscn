@@ -19,7 +19,8 @@ orbit_velocity_random = 0.0
 radius = 29.5854
 height = 16.6889
 
-[node name="fighter" type="KinematicBody2D"]
+[node name="cruiser" type="KinematicBody2D"]
+scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 speed = 2
 
@@ -27,6 +28,7 @@ speed = 2
 texture = ExtResource( 2 )
 vframes = 8
 hframes = 8
+frame = 15
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( -40, 0 )

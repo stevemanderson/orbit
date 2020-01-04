@@ -7,6 +7,7 @@
 [sub_resource type="ParticlesMaterial" id=1]
 flag_disable_z = true
 gravity = Vector3( 0, 98, 0 )
+angular_velocity = 1.5
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
@@ -14,6 +15,7 @@ orbit_velocity_random = 0.0
 extents = Vector2( 13.1185, 63.4214 )
 
 [node name="missile" type="KinematicBody2D"]
+scale = Vector2( 0.25, 0.25 )
 script = ExtResource( 1 )
 speed = 10
 

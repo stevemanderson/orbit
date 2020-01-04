@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://planets/orbits/orbit.gd" type="Script" id=1]
+[ext_resource path="res://planets/moon.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -24.9193, 0.142396, 24.9193, -0.142396, 0.11969, -49.6073, 0.142396, -25.4888, -0.142396, 25.4888, 49.9159, 0.188934, 24.6345, 0, -24.6345, 0, -0.0657806, 50.3278, 0, 25.3464, 0, -25.3464, -50.1347, 0.00860596, -24.7769, -0.14179, 24.7769, 0.14179, 0.11969, -49.6073 )
+}
+
+[node name="inner_orbit" type="Node2D"]
+script = ExtResource( 1 )
+orbital_entities = [ ExtResource( 2 ), null, ExtResource( 2 ), ExtResource( 2 ) ]
+
+[node name="orbit_path" type="Path2D" parent="."]
+position = Vector2( 0.108927, -0.576984 )
+scale = Vector2( 1.99571, 2.00869 )
+curve = SubResource( 1 )
+
+[node name="follow1" type="PathFollow2D" parent="orbit_path"]
+position = Vector2( 0.11969, -49.6073 )
+rotation = 0.0488952
+rotate = false
+
+[node name="follow2" type="PathFollow2D" parent="orbit_path"]
+position = Vector2( 0.11969, -49.6073 )
+rotation = 0.0488952
+rotate = false
+
+[node name="follow3" type="PathFollow2D" parent="orbit_path"]
+position = Vector2( 0.11969, -49.6073 )
+rotation = 0.0488952
+rotate = false
+
+[node name="follow4" type="PathFollow2D" parent="orbit_path"]
+position = Vector2( 0.11969, -49.6073 )
+rotation = 0.0488952
+rotate = false

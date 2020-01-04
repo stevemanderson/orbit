@@ -17,3 +17,6 @@ func _physics_process(delta):
 			emit_signal("killed", "missile", get_instance_id(), collision_info.collider.get_instance_id(), position)
 	else:
 		emit_signal("killed", "missile", get_instance_id(), null, position)
+		
+func get_position():
+	return position
