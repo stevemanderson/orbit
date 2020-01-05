@@ -11,10 +11,13 @@ func _ready():
 		var current_offset = offset_per
 		for i in range(orbital_entity_count):
 			$orbit_path.get_child(i).set_offset(current_offset)
-			orbital_entities[i] = preload("res://planets/orbits/orbit_placeholder.tscn").instance()
-			placeholders[i] = orbital_entities[i]
+			var entity = preload("res://planets/orbits/orbit_placeholder.tscn").instance()
+			orbital_entities[entity.get_instance_id()] = {}
+			orbital_entities[entity.get_instance_id()].index = i
+			orbital_entities[entity.get_instance_id()].entity = entity
+			placeholders[i] = orbital_entities[entity.get_instance_id()].entity
 			placeholders[i].connect("placeholder_selected", self, "_placeholder_selected")
-			$orbit_path.get_child(i).add_child(orbital_entities[i])
+			$orbit_path.get_child(i).add_child(orbital_entities[entity.get_instance_id()].entity)
 			current_offset += offset_per
 	$orbit_path.set_process(true)
 	
@@ -23,4 +26,17 @@ func _process(delta):
 		follow.set_offset(follow.get_offset() + 0.75 + delta)
 
 func _placeholder_selected(placeholder):
-	print('test')
+	var key = placeholder.get_instance_id()
+	if orbital_entities.has(key):
+		var index = orbital_entities[key].index
+		var entity = orbital_entities[key].entity
+		
+		var child = $orbit_path.get_child(index)
+		child.remove_child(entity)
+		
+		orbital_entities.erase(key)
+		
+		orbital_entities[key] = {}
+		orbital_entities[key].index = index
+		orbital_entities[key].entity = preload("res://defense/orbit_ship.tscn").instance()
+		child.add_child(orbital_entities[key].entity)

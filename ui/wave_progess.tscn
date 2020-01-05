@@ -5,6 +5,7 @@
 [node name="wave_progress" type="CanvasLayer"]
 
 [node name="progress_bar" type="ColorRect" parent="."]
+visible = false
 margin_right = 25.0
 margin_bottom = 500.0
 color = Color( 1, 1, 1, 0.27451 )

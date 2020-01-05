@@ -13,10 +13,7 @@ __meta__ = {
 [node name="Planet" parent="." instance=ExtResource( 1 )]
 
 [node name="inner_orbit" parent="." instance=ExtResource( 2 )]
-orbital_entity_count = 0
 
 [node name="middle_orbit" parent="." instance=ExtResource( 3 )]
-orbital_entity_count = 0
 
 [node name="outer_orbit" parent="." instance=ExtResource( 4 )]
-orbital_entity_count = 0
