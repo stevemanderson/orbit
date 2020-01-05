@@ -20,6 +20,7 @@ radius = 29.5854
 height = 16.6889
 
 [node name="fighter" type="KinematicBody2D"]
+collision_mask = 3
 script = ExtResource( 1 )
 speed = 2
 

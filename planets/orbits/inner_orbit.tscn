@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://planets/orbits/orbit.gd" type="Script" id=1]
-[ext_resource path="res://planets/moon.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -10,7 +9,10 @@ _data = {
 
 [node name="inner_orbit" type="Node2D"]
 script = ExtResource( 1 )
-orbital_entities = [ ExtResource( 2 ), null, ExtResource( 2 ), ExtResource( 2 ) ]
+__meta__ = {
+"_edit_group_": true
+}
+orbital_entity_count = 4
 
 [node name="orbit_path" type="Path2D" parent="."]
 position = Vector2( 0.108927, -0.576984 )

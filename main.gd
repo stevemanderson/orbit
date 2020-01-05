@@ -27,15 +27,14 @@ func on_killed(type, instance_id, collider_instance_id, position):
 	clearEntity(instance_id)
 	clearEntity(collider_instance_id)
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			var entity = preload("res://ammo/missile.tscn").instance()
-			entity.position = $launch_point.position
-			entity.target = $camera.get_global_mouse_position()
-			entity.connect("killed", self, "on_killed")
-			add_child(entity)
-			entities[entity.get_instance_id()] = entity
+#func _input(event):
+#	if event is InputEventMouseButton:
+#		if event.button_index == BUTTON_LEFT and event.pressed:
+#			var entity = preload("res://ammo/missile.tscn").instance()
+#			entity.position = $launch_point.position
+#			entity.target = $camera.get_global_mouse_position()
+#			add_child(entity)
+#			entities[entity.get_instance_id()] = entity
 
 func clearEntity(id):
 	if (!entities.has(id)):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://planets/moon.gd" type="Script" id=1]
 [ext_resource path="res://assets/moon.png" type="Texture" id=2]
@@ -21,7 +21,10 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ]
 }
 
-[node name="Moon" type="Area2D"]
+[sub_resource type="CircleShape2D" id=2]
+radius = 28.0065
+
+[node name="Moon" type="KinematicBody2D"]
 scale = Vector2( 0.1, 0.1 )
 script = ExtResource( 1 )
 
@@ -33,3 +36,6 @@ texture = ExtResource( 2 )
 vframes = 4
 hframes = 5
 frame = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
