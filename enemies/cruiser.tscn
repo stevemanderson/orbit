@@ -16,14 +16,15 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 29.5854
-height = 16.6889
+radius = 24.7802
+height = 1.26794
 
 [node name="cruiser" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
-collision_mask = 3
+collision_layer = 33
+collision_mask = 35
 script = ExtResource( 1 )
-speed = 2
+speed = 8
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

@@ -1,4 +1,8 @@
 extends Node2D
 
 func _ready():
-	$Particles2D.one_shot = true
+	$particles.one_shot = true
+	$kill_timer.start()
+
+func _on_kill_timer_timeout():
+	get_tree().root.get_child(0).remove_entity(self)

@@ -8,7 +8,6 @@ export var max_zoom = 3.3
 
 var left_down = false
 var left_down_position = 0
-var is_within_scrolling = false
 var scroll_direction_x = 0
 var scroll_direction_y = 0
 

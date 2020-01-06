@@ -1,7 +1,5 @@
 extends ColorRect
 
-signal wave_complete
-
 export var seconds = 0
 var progress_step
 

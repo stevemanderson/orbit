@@ -24,11 +24,8 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=2]
 radius = 45.7362
 
-[node name="Planet" type="Area2D"]
+[node name="Planet" type="KinematicBody2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/rotate = SubResource( 1 )

@@ -1,6 +1,8 @@
 extends Node2D
 
+export var orbital_speed = 0.75
 export var orbital_entity_count = 0
+export var orbital_radius = 2
 
 var orbital_entities = {}
 var placeholders = {}
@@ -23,7 +25,7 @@ func _ready():
 	
 func _process(delta):
 	for follow in $orbit_path.get_children():
-		follow.set_offset(follow.get_offset() + 0.75 + delta)
+		follow.set_offset(follow.get_offset() + orbital_speed + delta)
 
 func _placeholder_selected(placeholder):
 	var key = placeholder.get_instance_id()

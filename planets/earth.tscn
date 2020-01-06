@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://planets/planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://planets/orbits/inner_orbit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://planets/orbits/middle_orbit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://planets/orbits/outer_orbit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://planets/orbits/moon_orbit.tscn" type="PackedScene" id=5]
 
 [node name="earth" type="Node2D"]
 __meta__ = {
@@ -17,3 +18,5 @@ __meta__ = {
 [node name="middle_orbit" parent="." instance=ExtResource( 3 )]
 
 [node name="outer_orbit" parent="." instance=ExtResource( 4 )]
+
+[node name="moon_orbit" parent="." instance=ExtResource( 5 )]
