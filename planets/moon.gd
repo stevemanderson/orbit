@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal planet_selected
+signal destroyed
 
 func _ready():
 	$AnimationPlayer.play('rotate')

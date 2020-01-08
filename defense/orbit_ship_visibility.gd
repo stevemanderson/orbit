@@ -1,21 +1,45 @@
-extends RigidBody2D
+extends Area2D
 
-var target
+var Missile = preload("res://defense/missile.tscn")
+
+var targets = []
+var shot_taken = false
 
 func _on_orbit_ship_visibility_body_entered(body):
-	target = body
-	target.connect("destroyed", self, "_on_target_destroyed")
+	targets.push_front(weakref(body))
 	launch()
-	$timeout.start()
+	
 
 func _on_timeout_timeout():
+	shot_taken = false
+	
+	var temp = []
+	while(targets.size() > 0):
+		var next = targets.pop_front()
+		if next != null && next.get_ref():
+			temp.push_back(next)
+	targets = temp
+	
+	if targets.size() == 0:
+		return
+
 	launch()
-	
+
 func launch():
-	var missile = preload("res://defense/missile.tscn").instance()
-	missile.initialize(target, global_position)
-	get_tree().root.get_child(0).add_entity(missile)
-	
-func _on_target_destroyed(entity):
-	target = null
-	$timeout.stop()
+	if shot_taken:
+		return
+
+	while(targets.size() > 0):
+		var next = targets.pop_front()
+		if next == null || !next.get_ref():
+			continue
+		
+		shot_taken = true
+		$timeout.start()
+		
+		var missile = Missile.instance()
+		missile.initialize(next.get_ref(), get_parent().get_parent().global_position)
+		get_tree().root.get_child(0).add_child(missile)
+		targets.push_front(next)
+		break;
+

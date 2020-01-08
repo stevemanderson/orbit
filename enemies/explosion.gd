@@ -5,4 +5,4 @@ func _ready():
 	$kill_timer.start()
 
 func _on_kill_timer_timeout():
-	get_tree().root.get_child(0).remove_entity(self)
+	queue_free()

@@ -8,6 +8,9 @@ signal destroyed
 var velocity = Vector2()
 var collided = false
 
+func _ready():
+	connect("tree_exiting", self, "on_exiting_tree")
+
 func _physics_process(delta):
 	velocity = (target.position - position).normalized() * speed
 	rotation = velocity.angle()
@@ -15,6 +18,9 @@ func _physics_process(delta):
 	if !collided:
 		var collision_info = move_and_collide(velocity)
 		if (collision_info):
-			if collision_info.collider.collision_mask != 32:
-				collided = true
-				emit_signal("destroyed", self)
+			collided = true
+			emit_signal("destroyed", self)
+			collision_info.collider.queue_free()
+
+func on_exiting_tree():
+	emit_signal("destroyed", self)

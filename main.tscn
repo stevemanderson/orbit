@@ -25,7 +25,7 @@ transform = Transform2D( 1, 0, 0, 1, 25, 100 )
 editor/display_folded = false
 
 [node name="spawn_timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.2
 autostart = true
 
 [node name="spawn_path" type="Path2D" parent="."]
@@ -47,9 +47,4 @@ position = Vector2( 3072, 3072 )
 
 [node name="earth" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3072, 3072 )
-
-[node name="cleanup_timer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="timeout" from="cleanup_timer" to="." method="_on_cleanup_timer_timeout"]
