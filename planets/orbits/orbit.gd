@@ -52,7 +52,6 @@ func on_placeholder_selected(placeholder):
 func on_orbital_entity_destroyed(entity):
 	var key = entity.get_instance_id()
 	if orbital_entities.has(key):
-		print(key)
 		var index = orbital_entities[key].index
 		var child = $orbit_path.get_child(index)
 		orbital_entities.erase(key)

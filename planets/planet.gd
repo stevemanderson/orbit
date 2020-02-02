@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends '../game_unit.gd'
 
 func _ready():
-	$AnimationPlayer.play('rotate')
+	$animation_player.play('rotate')

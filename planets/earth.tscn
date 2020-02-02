@@ -11,7 +11,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Planet" parent="." instance=ExtResource( 1 )]
+[node name="planet" parent="." instance=ExtResource( 1 )]
+hit_points = 1000
+current_hit_points = 1000
 
 [node name="inner_orbit" parent="." instance=ExtResource( 2 )]
 

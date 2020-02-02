@@ -8,7 +8,9 @@ _data = {
 }
 
 [node name="orbit" type="Node2D"]
+scale = Vector2( 1, 0.98826 )
 script = ExtResource( 1 )
+orbital_speed = 0.35
 orbital_entity_count = 8
 
 [node name="orbit_path" type="Path2D" parent="."]

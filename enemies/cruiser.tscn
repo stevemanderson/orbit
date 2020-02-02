@@ -17,29 +17,31 @@ orbit_velocity_random = 0.0
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 24.7802
-height = 1.26794
+height = 21.6072
 
 [node name="cruiser" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
-collision_layer = 10
+collision_layer = 64
 collision_mask = 15
 script = ExtResource( 1 )
-speed = 8
+hit_points = 100
+current_hit_points = 100
+speed = 2
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 vframes = 8
 hframes = 8
 frame = 15
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="particles" type="Particles2D" parent="."]
 position = Vector2( -40, 0 )
 rotation = 1.5708
 amount = 10
 process_material = SubResource( 1 )
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2( -3.59241, 0 )
 rotation = 1.5708
 shape = SubResource( 2 )

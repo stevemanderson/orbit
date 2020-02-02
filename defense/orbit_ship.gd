@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends '../game_unit.gd'
 
 signal destroyed
 

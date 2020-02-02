@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends '../game_unit.gd'
 
 export var speed = 20
 
@@ -6,6 +6,7 @@ var target
 var target_position
 var velocity = Vector2()
 var is_destroyed = false
+var collided = false
 var Explosion = preload("res://enemies/explosion.tscn")
 
 func initialize(entity, pos):
@@ -21,13 +22,18 @@ func _process(delta):
 func _physics_process(delta):
 	velocity = (target_position - position).normalized() * speed
 	rotation = velocity.angle()
-	var result = move_and_collide(velocity)
+	
+	var collision_info = move_and_collide(velocity)
+	if (collision_info):
+		collided = true
+		var collider = collision_info.collider
+		collider.take_damage(self)
+		take_damage(collider)
 	
 	if position.distance_to(target_position) < 20:
 		queue_free()
 	
 func _exit_tree():
-	var main = get_tree().root.get_child(0)
 	var explosion = Explosion.instance()
 	explosion.position = position
-	main.add_child(explosion)
+	get_tree().root.get_child(0).add_child(explosion)

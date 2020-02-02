@@ -1,26 +1,33 @@
-extends KinematicBody2D
+extends '../game_unit.gd'
 
-export (PackedScene) var target
 export var speed = 0
 
-signal destroyed
-
+var target
 var velocity = Vector2()
 var collided = false
-
-func _ready():
-	connect("tree_exiting", self, "on_exiting_tree")
+var Explosion = preload("res://enemies/explosion.tscn")
 
 func _physics_process(delta):
 	velocity = (target.position - position).normalized() * speed
 	rotation = velocity.angle()
 	
-	if !collided:
-		var collision_info = move_and_collide(velocity)
-		if (collision_info):
-			collided = true
-			emit_signal("destroyed", self)
-			collision_info.collider.queue_free()
+	var collision_info = move_and_collide(velocity)
+	if (collision_info):
+		var collider = collision_info.collider
+		
+		# Don't do anything if it's firepower
+		# It will be handled in the weapon.
+		# Most likely need to handle this far differently later
+		if collider.is_in_group('firepower'):
+			return
+		
+		var temp_velocity = velocity
+		collided = true		
+		collider.take_damage(self)
+		take_damage(collider)
+		velocity = temp_velocity
 
-func on_exiting_tree():
-	emit_signal("destroyed", self)
+func _exit_tree():
+	var explosion = Explosion.instance()
+	explosion.position = global_position
+	get_tree().root.get_child(0).add_child(explosion)

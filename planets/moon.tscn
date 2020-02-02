@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://planets/moon.gd" type="Script" id=1]
+[ext_resource path="res://planets/planet.gd" type="Script" id=1]
 [ext_resource path="res://assets/moon.png" type="Texture" id=2]
 [ext_resource path="res://planets/orbits/inner_orbit.tscn" type="PackedScene" id=3]
 
@@ -10,7 +10,7 @@ length = 4.75
 loop = true
 step = 0.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -25,21 +25,21 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=2]
 radius = 28.0065
 
-[node name="moon" type="Node2D"]
-
-[node name="body" type="KinematicBody2D" parent="."]
+[node name="moon" type="KinematicBody2D"]
 script = ExtResource( 1 )
+hit_points = 500
+current_hit_points = 500
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="body"]
+[node name="animation_player" type="AnimationPlayer" parent="."]
 anims/rotate = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="body"]
+[node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 5
 frame = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="body"]
+[node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
 [node name="inner_orbit" parent="." instance=ExtResource( 3 )]

@@ -17,13 +17,15 @@ orbit_velocity_random = 0.0
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 26.5942
-height = 2.50487
+height = 15.6241
 
 [node name="fighter" type="KinematicBody2D"]
-collision_layer = 10
-collision_mask = 15
+collision_layer = 64
+collision_mask = 7
 script = ExtResource( 1 )
-speed = 8
+hit_points = 50
+current_hit_points = 50
+speed = 5
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

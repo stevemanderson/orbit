@@ -12,6 +12,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+orbital_speed = 0.5
 orbital_entity_count = 4
 
 [node name="orbit_path" type="Path2D" parent="."]
