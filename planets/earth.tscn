@@ -18,6 +18,7 @@ current_hit_points = 1000
 [node name="inner_orbit" parent="." instance=ExtResource( 2 )]
 
 [node name="middle_orbit" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 1, 1 )
 
 [node name="outer_orbit" parent="." instance=ExtResource( 4 )]
 

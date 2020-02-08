@@ -4,7 +4,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( -24.9193, 0.142396, 24.9193, -0.142396, 0.107113, -74.0134, -0.0197182, -49.3267, 0.0197182, 49.3267, 74.8012, 0.351076, 24.6345, 0, -24.6345, 0, -0.00924866, 75.3892, 0, 49.0232, 0, -49.0232, -74.895, 0.0450483, -24.939, -0.14179, 24.939, 0.14179, -0.0468966, -74.0134 )
+"points": PoolVector2Array( -75.714, -0.839733, 75.714, 0.839733, -0.753596, -151.175, -0.0197182, -100.725, 0.0197182, 100.725, 150.336, 0.727895, 74.7821, 0, -74.7821, 0, 0.21697, 152.631, -0.323533, 76.1954, 0.323533, -76.1954, -150.226, 0.40055, -74.4395, 0.185586, 74.4395, -0.185586, -0.753596, -151.175 )
 }
 
 [node name="orbit" type="Node2D"]
@@ -15,52 +15,51 @@ orbital_entity_count = 8
 
 [node name="orbit_path" type="Path2D" parent="."]
 position = Vector2( 0.108927, -0.576984 )
-scale = Vector2( 1.99571, 2.00869 )
 curve = SubResource( 1 )
 
 [node name="follow1" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.107113, -74.0134 )
+position = Vector2( -0.753596, -151.175 )
 rotation = 0.0468217
 rotate = false
 
 [node name="follow2" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 55.9912, -46.8375 )
+position = Vector2( 61.3861, -138.696 )
 rotation = 0.0468217
 offset = 63.69
 rotate = false
 
 [node name="follow3" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 74.8006, 0.0574916 )
+position = Vector2( 104.918, -111.099 )
 rotation = 0.0468217
 offset = 115.44
 rotate = false
 
 [node name="follow4" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 52.2898, 51.4026 )
+position = Vector2( 137.851, -64.2602 )
 rotation = 0.0468217
 offset = 173.15
 rotate = false
 
 [node name="follow5" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.990377, 75.3706 )
+position = Vector2( 150.134, -8.18441 )
 rotation = 0.0468217
 offset = 230.87
 rotate = false
 
 [node name="follow6" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( -53.6377, 49.8207 )
+position = Vector2( 142.708, 52.755 )
 rotation = 0.0468217
 offset = 292.57
 rotate = false
 
 [node name="follow7" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( -74.8954, -0.0954109 )
+position = Vector2( 116.082, 101.32 )
 rotation = 0.0468217
 offset = 348.3
 rotate = false
 
 [node name="follow8" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( -50.3181, -52.4884 )
+position = Vector2( 69.0671, 137.264 )
 rotation = 0.0468217
 offset = 408.0
 rotate = false

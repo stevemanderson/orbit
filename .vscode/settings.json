@@ -1,0 +1,10 @@
+{
+  "vim.useCtrlKeys": false,
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    "<C-v>": false,
+    "<C-c>": false,
+    "<C-z>": false
+  }
+}

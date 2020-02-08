@@ -6,6 +6,7 @@ var Cruiser = preload("res://enemies/cruiser.tscn")
 
 func _ready():
 	randomize()
+	$spawn_timer.start()
 
 func _on_spawn_timer_timeout():
 	var type = randi() % 2

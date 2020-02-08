@@ -28,7 +28,6 @@ wait_time = 0.05
 autostart = true
 
 [node name="spawn_path" type="Path2D" parent="."]
-editor/display_folded = true
 position = Vector2( 2288.31, 1711.23 )
 curve = SubResource( 1 )
 
@@ -46,3 +45,4 @@ position = Vector2( 3072, 3072 )
 
 [node name="earth" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3072, 3072 )
+[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

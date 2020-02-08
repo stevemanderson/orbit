@@ -36,10 +36,13 @@ func launch():
 		
 		shot_taken = true
 		$timeout.start()
-		
-		var missile = Missile.instance()
-		missile.initialize(next.get_ref(), get_parent().get_parent().global_position)
-		get_tree().root.get_child(0).add_child(missile)
-		targets.push_front(next)
+
+		call_deferred('add_missile', next, get_parent().get_parent())
+
 		break;
 
+func add_missile(next, container):
+	var missile = Missile.instance()
+	missile.initialize(next.get_ref(), container.global_position)
+	get_tree().root.get_child(0).get_child(0).add_child(missile)
+	targets.push_front(next)

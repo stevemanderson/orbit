@@ -6,7 +6,6 @@ var target
 var target_position
 var velocity = Vector2()
 var is_destroyed = false
-var collided = false
 var Explosion = preload("res://enemies/explosion.tscn")
 
 func initialize(entity, pos):
@@ -14,18 +13,17 @@ func initialize(entity, pos):
 	target = weakref(entity)
 	position = pos
 
-func _process(delta):
+func _process(_delta):
 	if target == null || !target.get_ref():
 		return
 	target_position = target.get_ref().position
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity = (target_position - position).normalized() * speed
 	rotation = velocity.angle()
 	
 	var collision_info = move_and_collide(velocity)
 	if (collision_info):
-		collided = true
 		var collider = collision_info.collider
 		collider.take_damage(self)
 		take_damage(collider)

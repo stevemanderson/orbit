@@ -11,7 +11,7 @@ var left_down_position = 0
 var scroll_direction_x = 0
 var scroll_direction_y = 0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	position.x += scroll_direction_x
 	position.y += scroll_direction_y
 	
