@@ -1,5 +1,7 @@
 extends '../game_unit.gd'
 
+var Explosion = preload("res://enemies/explosion.tscn")
+
 export var speed = 2
 
 signal destroyed
@@ -16,13 +18,23 @@ var orbit_index
 var orbit_placeholder
 
 func _physics_process(_delta):
-	if(status == MOVING_TO_ORBIT):
-		velocity = (target.position - position).normalized() * speed
-		rotation = velocity.angle()
-		move_and_collide(velocity)
+	if (!target || !target.get_ref()):
+		return
 
-func _exit_tree():
-	emit_signal("destroyed", self)
+	if(status == MOVING_TO_ORBIT):
+		velocity = (target.get_ref().position - position).normalized() * speed
+		rotation = velocity.angle()
+
+	var collision_info = move_and_collide(velocity)
+
+	if (status == IN_ORBIT && collision_info):
+		get_tree().root.get_child(0).add_collision(self, collision_info.collider)
+
+#func _exit_tree():
+#	emit_signal("destroyed", self)
+#	var explosion = Explosion.instance()
+#	explosion.global_position = global_position
+#	get_parent().add_child(explosion)
 
 func get_status():
 	return status
@@ -31,7 +43,7 @@ func set_status(_status):
 	status = _status
 
 func set_target(_target):
-	target = _target
+	target = weakref(_target)
 
 func set_orbit_index(_orbit_index):
 	orbit_index = _orbit_index

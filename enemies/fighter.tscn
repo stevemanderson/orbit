@@ -19,7 +19,9 @@ orbit_velocity_random = 0.0
 radius = 26.5942
 height = 15.6241
 
-[node name="fighter" type="KinematicBody2D"]
+[node name="fighter" type="KinematicBody2D" groups=[
+"enemies",
+]]
 collision_layer = 64
 collision_mask = 15
 script = ExtResource( 1 )

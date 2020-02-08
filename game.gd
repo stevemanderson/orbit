@@ -19,6 +19,6 @@ func _on_spawn_timer_timeout():
 
 	$spawn_path/spawn_location.set_offset(randi())
 	entity.position = $spawn_path/spawn_location.position + $spawn_path.position
-	entity.target = $earth
+	entity.set_target($earth)
 
 	add_child(entity)

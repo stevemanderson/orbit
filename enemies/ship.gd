@@ -7,26 +7,24 @@ var velocity = Vector2()
 var Explosion = preload("res://enemies/explosion.tscn")
 
 func _physics_process(_delta):
-	velocity = (target.position - position).normalized() * speed
+	if (!target && !target.get_ref()):
+		return
+
+	var tar = target.get_ref()
+	velocity = (tar.position - position).normalized() * speed
 	rotation = velocity.angle()
 	
 	var collision_info = move_and_collide(velocity)
 	if (collision_info):
-		var collider = collision_info.collider
-		
-		# Don't do anything if it's firepower
-		# It will be handled in the weapon.
-		# Most likely need to handle this far differently later
-		if collider.is_in_group('firepower'):
-			return
-
-		var temp_velocity = velocity
-		velocity = temp_velocity
+		get_tree().root.get_child(0).add_collision(self, collision_info.collider)
 
 func _exit_tree():
+	call_deferred('explode')	
+
+func explode():
 	var explosion = Explosion.instance()
-	explosion.position = global_position
-	get_tree().root.get_child(0).add_child(explosion)
+	explosion.global_position = global_position
+	get_parent().add_child(explosion)
 
 func set_target(_target):
-	target = _target
+	target = weakref(_target)

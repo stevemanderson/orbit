@@ -15,7 +15,7 @@ orbit_velocity_random = 0.0
 extents = Vector2( 13.1185, 63.4214 )
 
 [node name="missile" type="KinematicBody2D" groups=[
-"firepower",
+"weapon",
 ]]
 scale = Vector2( 0.2, 0.2 )
 collision_layer = 4

@@ -19,6 +19,10 @@ config/name="Orbit"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+global="*res://global.gd"
+
 [debug]
 
 settings/stdout/verbose_stdout=true
