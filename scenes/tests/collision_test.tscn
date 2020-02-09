@@ -4,11 +4,21 @@
 [ext_resource path="res://defense/orbit_ship.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/tests/collision_test.gd" type="Script" id=3]
 
-[node name="collision_test" type="Node2D"]
+[node name="collision_test" type="Node"]
 script = ExtResource( 3 )
 
 [node name="fighter" parent="." instance=ExtResource( 1 )]
-position = Vector2( 229.31, 341.905 )
+position = Vector2( 201.874, 341.905 )
+collision_layer = 32
+speed = 2
+
+[node name="fighter2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1012.09, 671.137 )
+collision_layer = 32
+speed = 2
+
+[node name="fighter3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1015.52, 36.679 )
 collision_layer = 32
 speed = 2
 

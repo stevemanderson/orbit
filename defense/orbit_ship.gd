@@ -4,7 +4,6 @@ var Explosion = preload("res://enemies/explosion.tscn")
 
 export var speed = 2
 
-signal destroyed
 signal deployed
 signal arrived
 

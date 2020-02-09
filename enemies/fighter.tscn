@@ -27,7 +27,7 @@ collision_mask = 15
 script = ExtResource( 1 )
 hit_points = 50
 current_hit_points = 50
-speed = 5
+speed = 4
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

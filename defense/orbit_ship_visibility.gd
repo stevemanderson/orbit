@@ -1,6 +1,7 @@
 extends Area2D
 
 var Missile = preload("res://defense/missile.tscn")
+var Explosion = preload("res://enemies/explosion.tscn")
 
 var targets = []
 var shot_taken = false
@@ -35,11 +36,19 @@ func launch():
 			continue
 		shot_taken = true
 		$timeout.start()
-		call_deferred('add_missile', next, get_parent().get_parent())
+		call_deferred('add_missile', next)
 		break;
 
-func add_missile(next, container):
+func add_missile(next):
 	var missile = Missile.instance()
-	missile.initialize(next.get_ref(), global_position)
+	missile.set_target(next.get_ref())
 	get_parent().add_child(missile)
+	missile.set_global_position(get_global_position())
 	targets.push_front(next)
+	missile.connect('destroyed', self, 'on_missile_destroyed')
+
+func on_missile_destroyed(missile):
+	var explosion = Explosion.instance()
+	get_parent().add_child(explosion)
+	explosion.position = missile.position
+	missile.queue_free()

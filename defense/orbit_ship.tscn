@@ -8,7 +8,7 @@
 radius = 14.6277
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 200.899
+radius = 803.135
 
 [node name="orbit_ship" type="KinematicBody2D"]
 collision_layer = 2
@@ -33,6 +33,6 @@ position = Vector2( -0.815552, 0 )
 shape = SubResource( 2 )
 
 [node name="timeout" type="Timer" parent="orbit_ship_visibility"]
-wait_time = 0.25
+wait_time = 0.5
 [connection signal="body_entered" from="orbit_ship_visibility" to="orbit_ship_visibility" method="_on_orbit_ship_visibility_body_entered"]
 [connection signal="timeout" from="orbit_ship_visibility/timeout" to="orbit_ship_visibility" method="_on_timeout_timeout"]

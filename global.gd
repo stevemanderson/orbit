@@ -16,10 +16,8 @@ func add_collision(object1, object2):
 
 	if ((object1.is_in_group("enemies") && object2.is_in_group("weapons")) ||
 		(object2.is_in_group("enemies") && object1.is_in_group("weapons"))):
-		print('attacked')
-
-	#object1.take_damage(object2)
-	#object2.take_damage(object1)
+		object1.take_damage(object2)
+		object2.take_damage(object1)
 
 func clear_collisions():
 	for key in collisions.keys():
@@ -28,4 +26,3 @@ func clear_collisions():
 
 func _process(_delta):
 	clear_collisions()
-	print(str("Total Collisions: ", String(collisions.size())))

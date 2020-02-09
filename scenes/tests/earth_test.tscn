@@ -12,3 +12,4 @@ position = Vector2( 653.141, 659.497 )
 
 [node name="fighter" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1432.43, 1144.02 )
+speed = 1
