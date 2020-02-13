@@ -15,18 +15,20 @@ func _physics_process(_delta):
 	position.x += scroll_direction_x
 	position.y += scroll_direction_y
 	
-
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == BUTTON_WHEEL_UP:
 			zoom.x -= 0.1
 			zoom.y -= 0.1
+			print(str('mouse up ', event.position))
 		elif event.button_index == BUTTON_WHEEL_DOWN:
 			zoom.x += 0.1
 			zoom.y += 0.1
+			print(str('mouse down ', event.position))
 		elif event.button_index == BUTTON_LEFT:
 			left_down = true
 			left_down_position = event.position
+
 		if zoom.x < min_zoom:
 			zoom.x = min_zoom
 		if zoom.y < min_zoom:

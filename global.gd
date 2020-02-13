@@ -14,8 +14,12 @@ func add_collision(object1, object2):
 		"lifetime": 2000
 	}
 
-	if ((object1.is_in_group("enemies") && object2.is_in_group("weapons")) ||
-		(object2.is_in_group("enemies") && object1.is_in_group("weapons"))):
+	if ((object2.is_in_group("weapons")) ||
+		(object1.is_in_group("weapons"))):
+		object1.take_damage(object2)
+		object2.take_damage(object1)
+	elif ((object1.is_in_group("enemies") && object2.is_in_group("ally")) ||
+		(object2.is_in_group("enemies") && object1.is_in_group("ally"))):
 		object1.take_damage(object2)
 		object2.take_damage(object1)
 
