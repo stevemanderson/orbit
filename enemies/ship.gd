@@ -44,8 +44,7 @@ func _on_attack_range_body_entered(body):
 	enemies.push_back(body)
 	state = ATTACKING
 	if $attack_timer.is_stopped():
-		attack(enemies[0])
-		$attack_timer.start()
+		call_deferred('attack', enemies[0])
 
 func _on_attack_range_body_exited(body):
 	enemies.erase(body)
@@ -62,6 +61,7 @@ func _on_attack_timer_timeout():
 		attack(enemies[0])
 
 func attack(enemy):
+	$attack_timer.start()
 	var missile = Missile.instance()
 	missile.set_collision_layer_bit(2, false)
 	missile.set_collision_layer_bit(7, true)

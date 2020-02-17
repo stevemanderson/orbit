@@ -1,6 +1,11 @@
 extends Area2D
 
+signal selected
+
+onready var is_selected = false
+
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.is_pressed():
-			get_tree().root.get_child(0).selection_manager.deselect_all()
+			is_selected = !is_selected
+			emit_signal('selected', is_selected)

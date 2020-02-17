@@ -7,7 +7,9 @@ _data = {
 "points": PoolVector2Array( -75.714, -0.839733, 75.714, 0.839733, -0.753596, -151.175, -0.0197182, -100.725, 0.0197182, 100.725, 150.336, 0.727895, 74.7821, 0, -74.7821, 0, 0.21697, 152.631, -0.323533, 76.1954, 0.323533, -76.1954, -150.226, 0.40055, -74.4395, 0.185586, 74.4395, -0.185586, -0.753596, -151.175 )
 }
 
-[node name="orbit" type="Node2D"]
+[node name="orbit" type="Node2D" groups=[
+"orbit",
+]]
 scale = Vector2( 1, 0.98826 )
 script = ExtResource( 1 )
 orbital_speed = 0.35
@@ -23,7 +25,7 @@ rotation = 0.0468217
 rotate = false
 
 [node name="follow2" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 61.3861, -138.696 )
+position = Vector2( 61.3861, -138.697 )
 rotation = 0.0468217
 offset = 63.69
 rotate = false
@@ -35,19 +37,19 @@ offset = 115.44
 rotate = false
 
 [node name="follow4" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 137.851, -64.2602 )
+position = Vector2( 137.851, -64.2604 )
 rotation = 0.0468217
 offset = 173.15
 rotate = false
 
 [node name="follow5" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 150.134, -8.18441 )
+position = Vector2( 150.134, -8.18443 )
 rotation = 0.0468217
 offset = 230.87
 rotate = false
 
 [node name="follow6" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 142.708, 52.755 )
+position = Vector2( 142.707, 52.7552 )
 rotation = 0.0468217
 offset = 292.57
 rotate = false
@@ -59,7 +61,7 @@ offset = 348.3
 rotate = false
 
 [node name="follow8" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 69.0671, 137.264 )
+position = Vector2( 69.0671, 137.265 )
 rotation = 0.0468217
 offset = 408.0
 rotate = false

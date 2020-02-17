@@ -19,6 +19,7 @@ var orbit_placeholder
 func _physics_process(_delta):
 	if (!target || !target.get_ref()):
 		return
+		
 
 	if(status == MOVING_TO_ORBIT):
 		velocity = (target.get_ref().position - position).normalized() * speed
@@ -28,12 +29,6 @@ func _physics_process(_delta):
 
 	if (status == IN_ORBIT && collision_info):
 		get_tree().root.get_child(0).add_collision(self, collision_info.collider)
-
-#func _exit_tree():
-#	emit_signal("destroyed", self)
-#	var explosion = Explosion.instance()
-#	explosion.global_position = global_position
-#	get_parent().add_child(explosion)
 
 func get_status():
 	return status

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://defense/orbit_ship.gd" type="Script" id=1]
+[ext_resource path="res://assets/orbit_iss.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 35, 25 )
+
+[node name="orbit_iss" type="KinematicBody2D" groups=[
+"ally",
+]]
+collision_layer = 2
+collision_mask = 1024
+script = ExtResource( 1 )
+hit_points = 50
+current_hit_points = 50
+
+[node name="sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

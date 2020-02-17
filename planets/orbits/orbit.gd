@@ -1,14 +1,16 @@
 extends Node2D
 
+signal orbit_location_selected
+
 export var orbital_speed = 0.75
 export var orbital_entity_count = 0
 export var orbital_radius = 2
 
 var orbital_entities = {}
 var placeholders = {}
+export (PackedScene) var selected_ship
 
 var OrbitPlaceholder = preload("res://planets/orbits/orbit_placeholder.tscn")
-var OrbitalShip = preload("res://defense/orbit_ship.tscn")
 var OrbitDeploymentPlaceholder = preload("res://planets/orbits/orbit_deployment_placeholder.tscn")
 
 func _ready():
@@ -37,6 +39,8 @@ func on_placeholder_selected(placeholder):
 	if !get_tree().root.get_child(0).selection_manager.is_selected(get_orbiting_planet()):
 		return
 
+	emit_signal('orbit_location_selected')
+
 	var key = placeholder.get_instance_id()
 	if orbital_entities.has(key):
 		var index = orbital_entities[key].index
@@ -57,7 +61,7 @@ func on_placeholder_selected(placeholder):
 		child.add_child(orbital_entities[placeholder_key].entity)
 
 		# deploy the ship
-		var ship = OrbitalShip.instance()
+		var ship = selected_ship.instance()
 		ship.connect("destroyed", self, "on_orbital_entity_destroyed")
 		ship.connect("arrived", self, "on_deployment_arrived")
 		ship.set_target(child);

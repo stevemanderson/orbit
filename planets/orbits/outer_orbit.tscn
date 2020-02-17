@@ -7,76 +7,77 @@ _data = {
 "points": PoolVector2Array( -124.434, 0.412439, 124.434, -0.412439, 0.133756, -199.561, 0.142396, -99.6151, -0.142396, 99.6151, 200.515, 0.721622, 124.96, 0.265541, -124.96, -0.265541, -0.259821, 200.746, -0.463289, 100.399, 0.463289, -100.399, -200.033, -0.0294308, -125.758, 0.108553, 125.758, -0.108553, 0.240911, -199.553 )
 }
 
-[node name="orbit" type="Node2D"]
+[node name="orbit" type="Node2D" groups=[
+"orbit",
+]]
 script = ExtResource( 1 )
 orbital_speed = 0.2
 orbital_entity_count = 16
 
 [node name="orbit_path" type="Path2D" parent="."]
-editor/display_folded = true
 position = Vector2( 0.108927, -0.576984 )
 curve = SubResource( 1 )
 
 [node name="follow1" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow2" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow3" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow4" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow5" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow6" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow7" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow8" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow9" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow10" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow11" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow12" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow13" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow14" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow15" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585
 
 [node name="follow16" type="PathFollow2D" parent="orbit_path"]
-position = Vector2( 0.603921, -99.3373 )
-rotation = 0.020046
+position = Vector2( 0.133756, -199.561 )
+rotation = 0.00576585

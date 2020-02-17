@@ -1,31 +1,56 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://enemies/fighter.tscn" type="PackedScene" id=1]
-[ext_resource path="res://defense/orbit_ship.tscn" type="PackedScene" id=2]
+[ext_resource path="res://planets/earth.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/tests/enemy_attack_test.gd" type="Script" id=3]
 
-[node name="collision_test" type="Node"]
+[node name="collision_test" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="fighter" parent="." instance=ExtResource( 1 )]
-position = Vector2( 27.8883, 389.519 )
+position = Vector2( 22.3092, -413.865 )
+collision_layer = 32
+speed = 2
+
+[node name="fighter2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 22.3092, -413.865 )
+collision_layer = 32
+speed = 2
+
+[node name="fighter3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 22.3092, -413.865 )
+collision_layer = 32
+speed = 2
+
+[node name="fighter4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 66.9417, -625.869 )
+collision_layer = 32
+speed = 2
+
+[node name="fighter5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -167.379, -56.8055 )
+collision_layer = 32
+speed = 2
+
+[node name="fighter6" parent="." instance=ExtResource( 1 )]
+position = Vector2( -276.17, -687.239 )
+collision_layer = 32
+speed = 2
+
+[node name="fighter7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 488.16, -302.284 )
+collision_layer = 32
+speed = 2
+
+[node name="fighter8" parent="." instance=ExtResource( 1 )]
+position = Vector2( -407.278, 358.834 )
+collision_layer = 32
+speed = 2
+
+[node name="fighter9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 479.792, -645.396 )
 collision_layer = 32
 speed = 2
 
 [node name="other" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1110.9, 373.289 )
-
-[node name="other2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 720.467, 444.029 )
-
-[node name="other3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 830.658, 328.396 )
-
-[node name="other4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 540.896, 346.081 )
-
-[node name="other5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 498.725, 450.831 )
-
-[node name="other6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 544.978, 389.614 )
+position = Vector2( 1006.46, 943.758 )
