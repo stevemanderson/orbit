@@ -19,4 +19,4 @@ position = Vector2( 0.571899, -549.395 )
 rotation = 0.0488952
 rotate = false
 
-[node name="Moon" parent="orbit_path/follow1" instance=ExtResource( 2 )]
+[node name="moon" parent="orbit_path/follow1" instance=ExtResource( 2 )]

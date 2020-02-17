@@ -1,55 +1,23 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ui/wave_progess.tscn" type="PackedScene" id=3]
 [ext_resource path="res://hud.tscn" type="PackedScene" id=4]
 [ext_resource path="res://camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://planets/earth.tscn" type="PackedScene" id=6]
-[ext_resource path="res://ai/ai.gd" type="Script" id=7]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -2286.41, -1710.42, 0, 0, 0, 0, 3863.16, -1708.4, 0, 0, 0, 0, 3859.49, 4437.64, 0, 0, 0, 0, -2283.43, 4435.69, 0, 0, 0, 0, -2287.31, -1709.52, 0, 0, 0, 0, -1220.48, -1707.22, 0, 0, 0, 0, -1224.62, -1711.81 )
-}
 
 [node name="game" type="Node"]
-script = ExtResource( 1 )
 
 [node name="background" parent="." instance=ExtResource( 2 )]
 
-[node name="wave_progress" parent="." instance=ExtResource( 3 )]
-offset = Vector2( 25, 100 )
-transform = Transform2D( 1, 0, 0, 1, 25, 100 )
-
 [node name="hud" parent="." instance=ExtResource( 4 )]
-
-[node name="spawn_path" type="Path2D" parent="."]
-position = Vector2( 2288.31, 1711.23 )
-curve = SubResource( 1 )
-
-[node name="spawn_location" type="PathFollow2D" parent="spawn_path"]
-position = Vector2( -2286.41, -1710.42 )
-rotate = false
 
 [node name="camera" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1410.28, 4909.48 )
 limit_right = 6144
 limit_bottom = 6144
 
-[node name="launch_point" type="Node2D" parent="."]
-position = Vector2( 3072, 3072 )
-
-[node name="earth" parent="." instance=ExtResource( 6 )]
+[node name="planet" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1410.28, 4909.48 )
 
-[node name="ai" type="Node" parent="."]
-script = ExtResource( 7 )
-
-[node name="planet" parent="ai" instance=ExtResource( 6 )]
+[node name="planet2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 4966.86, 1642.39 )
-
-[node name="spawn_timer" type="Timer" parent="ai"]
-wait_time = 2.0
-autostart = true
-[connection signal="timeout" from="ai/spawn_timer" to="ai" method="_on_spawn_timer_timeout"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://planets/planet.gd" type="Script" id=1]
+[ext_resource path="res://planets/moon.gd" type="Script" id=1]
 [ext_resource path="res://assets/moon.png" type="Texture" id=2]
 [ext_resource path="res://planets/orbits/inner_orbit.tscn" type="PackedScene" id=3]
 
@@ -25,21 +25,21 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=2]
 radius = 28.0065
 
-[node name="moon" type="KinematicBody2D"]
+[node name="moon" type="Node"]
 script = ExtResource( 1 )
-hit_points = 500
-current_hit_points = 500
 
-[node name="animation_player" type="AnimationPlayer" parent="."]
+[node name="moon" type="KinematicBody2D" parent="."]
+
+[node name="animation_player" type="AnimationPlayer" parent="moon"]
 anims/rotate = SubResource( 1 )
 
-[node name="sprite" type="Sprite" parent="."]
+[node name="sprite" type="Sprite" parent="moon"]
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 5
-frame = 7
+frame = 10
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="moon"]
 shape = SubResource( 2 )
 
-[node name="inner_orbit" parent="." instance=ExtResource( 3 )]
+[node name="inner_orbit" parent="moon" instance=ExtResource( 3 )]

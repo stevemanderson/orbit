@@ -1,6 +1,11 @@
 extends Node
 
+const SelectionManager = preload("selection_manager.gd")
+
+onready var selection_manager = SelectionManager.new()
+
 var collisions = {}
+export (int) var current_player
 
 func add_collision(object1, object2):
 	if (collisions.has(str(object1.get_instance_id(), "_", object2.get_instance_id())) ||
@@ -30,3 +35,6 @@ func clear_collisions():
 
 func _process(_delta):
 	clear_collisions()
+
+func get_current_player():
+	return current_player

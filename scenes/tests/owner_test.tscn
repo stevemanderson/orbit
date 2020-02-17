@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://planets/earth.tscn" type="PackedScene" id=1]
+
+[node name="owner_test" type="Node2D"]
+
+[node name="earth" parent="." instance=ExtResource( 1 )]
+position = Vector2( 371.153, 637.726 )
+player = 1
+
+[node name="earth2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1027.33, 590.563 )
+player = 2

@@ -4,18 +4,14 @@
 [ext_resource path="res://planets/orbits/inner_orbit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://planets/orbits/middle_orbit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://planets/orbits/outer_orbit.tscn" type="PackedScene" id=4]
-[ext_resource path="res://planets/orbits/moon_orbit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://planets/system.gd" type="Script" id=5]
 
 [node name="earth" type="Node2D"]
-__meta__ = {
-"_edit_group_": true
-}
+script = ExtResource( 5 )
 
 [node name="planet" parent="." instance=ExtResource( 1 )]
 collision_layer = 0
 collision_mask = 0
-hit_points = 1000
-current_hit_points = 1000
 
 [node name="inner_orbit" parent="." instance=ExtResource( 2 )]
 
@@ -23,5 +19,3 @@ current_hit_points = 1000
 scale = Vector2( 1, 1 )
 
 [node name="outer_orbit" parent="." instance=ExtResource( 4 )]
-
-[node name="moon_orbit" parent="." instance=ExtResource( 5 )]

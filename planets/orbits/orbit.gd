@@ -32,6 +32,11 @@ func _process(delta):
 		follow.set_offset(follow.get_offset() + orbital_speed + delta)
 
 func on_placeholder_selected(placeholder):
+	if get_orbiting_planet().player != get_tree().root.get_child(0).get_current_player():
+		return
+	if !get_tree().root.get_child(0).selection_manager.is_selected(get_orbiting_planet()):
+		return
+
 	var key = placeholder.get_instance_id()
 	if orbital_entities.has(key):
 		var index = orbital_entities[key].index
@@ -66,7 +71,7 @@ func on_deployment_arrived(ship):
 	call_deferred('handle', ship)
 
 func on_orbital_entity_destroyed(entity):
-	remove_orbital_entity(entity.get_orbit_key());
+	remove_orbital_entity(entity.get_orbit_key())
 
 func remove_orbital_entity(key, add_placeholder=true):
 	if orbital_entities.has(key):
@@ -104,3 +109,6 @@ func handle(ship):
 	orbital_entities[ship_key] = {}
 	orbital_entities[ship_key].index = ship.get_orbit_index()
 	orbital_entities[ship_key].entity = ship
+
+func get_orbiting_planet():
+	return get_parent()
