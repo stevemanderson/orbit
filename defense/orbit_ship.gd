@@ -4,7 +4,6 @@ var Explosion = preload("res://enemies/explosion.tscn")
 
 export var speed = 2
 
-signal deployed
 signal arrived
 
 var MOVING_TO_ORBIT = 0
@@ -20,7 +19,6 @@ func _physics_process(_delta):
 	if (!target || !target.get_ref()):
 		return
 		
-
 	if(status == MOVING_TO_ORBIT):
 		velocity = (target.get_ref().position - position).normalized() * speed
 		rotation = velocity.angle()

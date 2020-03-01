@@ -16,10 +16,10 @@ gradient = SubResource( 2 )
 [node name="selection_test" type="Node2D"]
 
 [node name="earth" parent="." instance=ExtResource( 1 )]
-position = Vector2( 299.591, 720.459 )
+position = Vector2( 315.916, 916.353 )
 
 [node name="earth2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 939.045, 622.275 )
+position = Vector2( 956.73, 818.169 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 350.639, 149.959 )

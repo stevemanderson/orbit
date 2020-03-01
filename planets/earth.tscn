@@ -9,6 +9,7 @@
 
 [node name="earth" type="Node2D" groups=[
 "single_select",
+"system",
 ]]
 script = ExtResource( 5 )
 
